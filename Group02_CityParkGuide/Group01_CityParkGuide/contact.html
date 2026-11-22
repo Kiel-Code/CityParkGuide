@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maple Hollow Park guide: trails, playground, picnic areas and events.">
+  <title>Contact | Maple Hollow Park Guide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Maple Hollow Park</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Contact the park team</h1>
+    <p class="lead">Ask a question, suggest an improvement, or sign up for an event.</p>
+
+    <section aria-labelledby="form-title">
+      <h2 id="form-title">Send us a message</h2>
+      <form action="#" method="post">
+        <div class="field">
+          <label for="name">Full name (required)</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address (required)</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="topic">What is your message about?</label>
+          <select id="topic" name="topic">
+            <option value="question">General question</option>
+            <option value="event">Event sign-up</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="report">Report a problem</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help."></textarea>
+          <p class="hint">We reply within three working days.</p>
+        </div>
+
+        <button type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Maple Hollow Park Guide &middot; a student project. All text and artwork are original.</p>
+      <p><a href="contact.html">Questions? Contact us</a></p>
+    </div>
+  </footer>
+</body>
+</html>

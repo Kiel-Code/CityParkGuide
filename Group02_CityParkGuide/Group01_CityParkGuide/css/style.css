@@ -1,0 +1,157 @@
+/* Maple Hollow Park Guide - hand-written CSS, no frameworks */
+:root {
+  --spruce: #1f4d3a;
+  --moss: #4f8a5b;
+  --mint: #f1f6ef;
+  --pond: #2f6f8f;
+  --ginkgo: #e8b931;
+  --bark: #3b2f25;
+  --white: #ffffff;
+  --line: #cddbc9;
+
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-head: Georgia, "Times New Roman", serif;
+
+  --radius: 10px;
+  --gap: 1.5rem;
+  --max: 1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--bark);
+  background: var(--mint);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: var(--font-head); color: var(--spruce); line-height: 1.2; }
+h1 { font-size: 2.2rem; margin: 0 0 .5rem; }
+h2 { font-size: 1.6rem; margin-top: 0; }
+h3 { font-size: 1.2rem; margin-bottom: .3rem; }
+p { max-width: 68ch; }
+
+a { color: var(--pond); text-underline-offset: 3px; }
+a:hover { color: var(--spruce); text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--ginkgo);
+  outline-offset: 2px;
+}
+
+/* ---------- Header + nav (Flexbox) ---------- */
+.site-header { background: var(--spruce); color: var(--white); }
+.header-inner {
+  max-width: var(--max); margin: 0 auto; padding: 1rem;
+  display: flex; flex-direction: column; gap: .75rem;
+}
+.brand { font-family: var(--font-head); font-size: 1.4rem; font-weight: bold;
+  color: var(--white); text-decoration: none; }
+.brand:hover { color: var(--ginkgo); }
+.site-nav ul { list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem; }
+.site-nav a {
+  display: block; padding: .45rem .9rem; border-radius: 999px;
+  color: var(--white); text-decoration: none;
+  border: 2px solid transparent;
+}
+.site-nav a:hover { background: rgba(255,255,255,.15); color: var(--white); }
+.site-nav a[aria-current="page"] { background: var(--ginkgo); color: var(--bark); font-weight: 600; }
+
+/* ---------- Layout ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+section { margin-bottom: 2.5rem; }
+
+.hero {
+  display: grid; gap: var(--gap); align-items: center;
+}
+.hero-text .lead { font-size: 1.2rem; }
+
+.btn, button {
+  display: inline-block; font: inherit; font-weight: 600;
+  background: var(--ginkgo); color: var(--bark);
+  border: 2px solid var(--ginkgo); border-radius: var(--radius);
+  padding: .7rem 1.4rem; cursor: pointer; text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.btn:hover, button:hover { background: var(--spruce); border-color: var(--spruce); color: var(--white); }
+
+/* Card grid (CSS Grid) */
+.card-grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; }
+.card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.card figure { margin: 0; }
+.card-body { padding: 1rem 1.2rem 1.3rem; }
+.card-body p { margin: .3rem 0 0; }
+
+figure { margin: 0; }
+figcaption { font-size: .9rem; color: var(--pond); padding: .5rem 0; font-style: italic; }
+.card figcaption { padding: .5rem 1.2rem 0; }
+
+/* Facts strip (Flexbox) */
+.facts { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: .75rem; }
+.facts li { background: var(--white); border-left: 6px solid var(--moss);
+  padding: .6rem 1rem; border-radius: 0 var(--radius) var(--radius) 0; }
+
+/* Tables / schedule */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--white); }
+th, td { text-align: left; padding: .7rem .9rem; border-bottom: 1px solid var(--line); }
+th { background: var(--spruce); color: var(--white); }
+tbody tr:hover { background: #e6f0e2; }
+
+.audio-box { background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.2rem; }
+audio { width: 100%; margin: .5rem 0; }
+
+/* ---------- Form ---------- */
+form { background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 1.1rem; max-width: 640px; }
+.field { display: flex; flex-direction: column; gap: .35rem; }
+label { font-weight: 600; color: var(--spruce); }
+input, select, textarea {
+  font: inherit; color: var(--bark); width: 100%;
+  padding: .7rem .8rem; border: 2px solid var(--line);
+  border-radius: 8px; background: var(--white);
+}
+input:hover, select:hover, textarea:hover { border-color: var(--moss); }
+input:focus, select:focus, textarea:focus { border-color: var(--pond); }
+textarea { min-height: 9rem; resize: vertical; }
+.hint { font-size: .9rem; color: #5c6b5c; margin: 0; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--bark); color: #efe9e0; }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1rem;
+  display: flex; flex-direction: column; gap: .5rem; }
+.site-footer a { color: var(--ginkgo); }
+.site-footer a:hover { color: var(--white); }
+.site-footer p { margin: 0; }
+
+/* ---------- Breakpoint: tablet ---------- */
+@media (min-width: 640px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  .footer-inner { flex-direction: row; justify-content: space-between; }
+}
+
+/* ---------- Breakpoint: desktop ---------- */
+@media (min-width: 960px) {
+  h1 { font-size: 2.9rem; }
+  .hero { grid-template-columns: 1fr 1fr; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+  main { padding-top: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
